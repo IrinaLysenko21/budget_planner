@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/budget_planner/static/css/main.67e7994e.chunk.css",
+    "main.js": "/budget_planner/static/js/main.8c23644c.chunk.js",
+    "main.js.map": "/budget_planner/static/js/main.8c23644c.chunk.js.map",
+    "runtime-main.js": "/budget_planner/static/js/runtime-main.aafb7ef5.js",
+    "runtime-main.js.map": "/budget_planner/static/js/runtime-main.aafb7ef5.js.map",
+    "static/js/2.132f83e5.chunk.js": "/budget_planner/static/js/2.132f83e5.chunk.js",
+    "static/js/2.132f83e5.chunk.js.map": "/budget_planner/static/js/2.132f83e5.chunk.js.map",
+    "index.html": "/budget_planner/index.html",
+    "precache-manifest.16a9fc93451d9b412fdc419164c48415.js": "/budget_planner/precache-manifest.16a9fc93451d9b412fdc419164c48415.js",
+    "service-worker.js": "/budget_planner/service-worker.js",
+    "static/css/main.67e7994e.chunk.css.map": "/budget_planner/static/css/main.67e7994e.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aafb7ef5.js",
+    "static/js/2.132f83e5.chunk.js",
+    "static/css/main.67e7994e.chunk.css",
+    "static/js/main.8c23644c.chunk.js"
+  ]
+}
