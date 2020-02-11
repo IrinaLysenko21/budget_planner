@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import budgetAppReducer from './budgetApp/budgetAppReducers';
+import budgetAppReducers from './budgetApp/budgetAppReducers';
 import timerReducer from './timer/timerReducer';
 
 const rootReducer = combineReducers({
-  budgetApp: budgetAppReducer,
+  budgetApp: budgetAppReducers,
   timer: timerReducer,
 });
 

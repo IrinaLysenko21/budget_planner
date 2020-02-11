@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import ExpensesTable from './ExpensesTable';
-import * as budgetAppActions from '../../reducs/budgetApp/budgetAppActions';
-import * as budgetAppSelectors from '../../reducs/budgetApp/budgetAppSelectors';
+import * as budgetAppActions from '../../redux/budgetApp/budgetAppActions';
+import * as budgetAppSelectors from '../../redux/budgetApp/budgetAppSelectors';
 
 const mapStateToProps = store => ({
-  expenses: budgetAppSelectors.getExpenses(store),
+  expenses: budgetAppSelectors.getFilteredExpenses(store),
 });
 
 const mapDispatchToProps = dispatch => ({

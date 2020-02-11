@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as timerActions from '../../reducs/timer/timerActions';
-import getTimerValue from '../../reducs/timer/timerSelectors';
+import * as timerActions from '../../redux/timer/timerActions';
+import getTimerValue from '../../redux/timer/timerSelectors';
 import css from './Timer.module.css';
 
 const Timer = ({ value, onIncrement, onDecrement }) => (

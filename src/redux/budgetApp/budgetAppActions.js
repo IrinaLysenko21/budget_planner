@@ -7,14 +7,23 @@ export const setBudget = budget => ({
   },
 });
 
-export const addExpense = expense => ({
+export const addExpense = data => ({
   type: types.ADD_EXPENSE,
-  payload: expense,
+  payload: {
+    expense: data,
+  },
 });
 
 export const deleteExpense = id => ({
   type: types.DELETE_EXPENSE,
   payload: {
     id,
+  },
+});
+
+export const searchExpenseAction = value => ({
+  type: types.SEARCH_EXPENSE,
+  payload: {
+    value,
   },
 });

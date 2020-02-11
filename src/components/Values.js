@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import * as budgetAppSelectors from '../reducs/budgetApp/budgetAppSelectors';
+import * as budgetAppSelectors from '../redux/budgetApp/budgetAppSelectors';
 import Value from './Value';
 
 const Container = styled.section`

@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import * as budgetAppSelectors from '../reducs/budgetApp/budgetAppSelectors';
+import * as budgetAppSelectors from '../redux/budgetApp/budgetAppSelectors';
 import BudgetForm from './BudgetForm/BudgetFormContainer';
 import ExpenseForm from './ExpenseForm/ExpenseFormContainer';
 import ExpensesTable from './ExpensesTable/expensesTableContainer';
 import Values from './Values';
 import Timer from './Timer/Timer';
+import SearchBar from './SearchBar/SearchBar';
 
 const Container = styled.div`
   display: grid;
@@ -22,15 +23,18 @@ const Container = styled.div`
 `;
 
 const App = ({ expenses }) => (
-  <Container>
-    <BudgetForm />
-    <Values />
-    <ExpenseForm />
-    {expenses.length > 0 && <ExpensesTable />}
-    <div className={css.block}>
-      <Timer />
-    </div>
-  </Container>
+  <>
+    <SearchBar />
+    <Container>
+      <BudgetForm />
+      <Values />
+      <ExpenseForm />
+      {expenses.length > 0 && <ExpensesTable />}
+      <div className={css.block}>
+        <Timer />
+      </div>
+    </Container>
+  </>
 );
 
 App.propTypes = {
