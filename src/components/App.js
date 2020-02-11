@@ -1,9 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import BudgetForm from './BudgetForm';
-import ExpenseForm from './ExpenseForm';
-import ExpensesTable from './ExpensesTable';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
+import * as budgetAppSelectors from '../reducs/budgetApp/budgetAppSelectors';
+import BudgetForm from './BudgetForm/BudgetFormContainer';
+import ExpenseForm from './ExpenseForm/ExpenseFormContainer';
+import ExpensesTable from './ExpensesTable/expensesTableContainer';
 import Values from './Values';
+import Timer from './Timer/Timer';
 
 const Container = styled.div`
   display: grid;
@@ -17,13 +21,24 @@ const Container = styled.div`
   margin-right: auto;
 `;
 
-const App = () => (
+const App = ({ expenses }) => (
   <Container>
     <BudgetForm />
     <Values />
     <ExpenseForm />
-    <ExpensesTable />
+    {expenses.length > 0 && <ExpensesTable />}
+    <div className={css.block}>
+      <Timer />
+    </div>
   </Container>
 );
 
-export default App;
+App.propTypes = {
+  expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+};
+
+const mapStateToProps = store => ({
+  expenses: budgetAppSelectors.getExpenses(store),
+});
+
+export default connect(mapStateToProps)(App);

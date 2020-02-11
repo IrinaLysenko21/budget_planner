@@ -1,9 +1,5 @@
-import { createStore, combineReducers } from 'redux';
-import budgetAppReducer from './budgetApp/budgetAppReducers';
-
-const rootReducer = combineReducers({
-  budgetApp: budgetAppReducer,
-});
+import { createStore } from 'redux';
+import rootReducer from './rootReducer';
 
 const store = createStore(
   rootReducer,

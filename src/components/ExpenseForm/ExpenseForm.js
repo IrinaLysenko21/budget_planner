@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import shortid from 'shortid';
-import * as budgetAppActions from '../reducs/budgetApp/budgetAppActions';
-import Form from './shared/Form';
-import Label from './shared/Label';
-import Input from './shared/Input';
-import Button from './shared/Button';
+import Form from '../shared/Form';
+import Label from '../shared/Label';
+import Input from '../shared/Input';
+import Button from '../shared/Button';
 
 const labelStyles = `
   margin-bottom: 16px;
@@ -70,8 +68,4 @@ class ExpenseForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addExpense: expense => dispatch(budgetAppActions.addExpense(expense)),
-});
-
-export default connect(null, mapDispatchToProps)(ExpenseForm);
+export default ExpenseForm;

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import * as budgetAppActions from '../reducs/budgetApp/budgetAppActions';
-import Button from './shared/Button';
+import Button from '../shared/Button';
 
 const Table = styled.table`
   border-collapse: collapse;
@@ -49,12 +47,4 @@ ExpensesTable.propTypes = {
   deleteExpense: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = store => ({
-  expenses: store.budgetApp.expenses,
-});
-
-const mapDispatchToProps = dispatch => ({
-  deleteExpense: id => dispatch(budgetAppActions.deleteExpense(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);
+export default ExpensesTable;
