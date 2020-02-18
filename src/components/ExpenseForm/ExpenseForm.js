@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import Form from '../shared/Form';
 import Label from '../shared/Label';
 import Input from '../shared/Input';
@@ -31,7 +30,6 @@ class ExpenseForm extends Component {
     const { name, amount } = this.state;
 
     this.props.addExpense({
-      id: shortid.generate(),
       name,
       amount: Number(amount),
     });

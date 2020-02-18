@@ -1,5 +1,25 @@
 import types from './budgetAppTypes';
 
+// Get budget actions
+
+export const getBudgetStart = () => ({
+  type: types.GET_BUDGET_START,
+});
+
+export const getBudgetSuccess = budget => ({
+  type: types.GET_BUDGET_SUCCESS,
+  payload: {
+    budget,
+  },
+});
+
+export const getBudgetError = error => ({
+  type: types.GET_BUDGET_ERROR,
+  payload: {
+    error,
+  },
+});
+
 // Set budget actions
 export const setBudgetStart = () => ({
   type: types.SET_BUDGET_START,
@@ -19,21 +39,20 @@ export const setBudgetError = error => ({
   },
 });
 
-// Get budget actions
-
-export const getBudgetStart = () => ({
-  type: types.SET_BUDGET_START,
+// Get expenses actions
+export const getExpensesStart = () => ({
+  type: types.GET_EXPENSES_START,
 });
 
-export const getBudgetSuccess = budget => ({
-  type: types.SET_BUDGET_SUCCESS,
+export const getExpensesSuccess = expenses => ({
+  type: types.GET_EXPENSES_SUCCESS,
   payload: {
-    budget,
+    expenses,
   },
 });
 
-export const getBudgetError = error => ({
-  type: types.SET_BUDGET_ERROR,
+export const getExpensesError = error => ({
+  type: types.GET_EXPENSES_ERROR,
   payload: {
     error,
   },
@@ -41,12 +60,25 @@ export const getBudgetError = error => ({
 
 // Add expense actions
 
-export const addExpense = data => ({
-  type: types.ADD_EXPENSE,
+export const addExpenseStart = () => ({
+  type: types.ADD_EXPENSE_START,
+});
+
+export const addExpenseSuccess = expense => ({
+  type: types.ADD_EXPENSE_SUCCESS,
   payload: {
-    expense: data,
+    expense,
   },
 });
+
+export const addExpenseError = error => ({
+  type: types.ADD_EXPENSE_ERROR,
+  payload: {
+    error,
+  },
+});
+
+// Delete expense actions
 
 export const deleteExpense = id => ({
   type: types.DELETE_EXPENSE,

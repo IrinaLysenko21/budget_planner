@@ -28,11 +28,14 @@ class App extends Component {
   static propTypes = {
     expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     isLoading: PropTypes.bool.isRequired,
+    getBudget: PropTypes.func.isRequired,
+    getExpenses: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    // console.log(this.props);
-    // this.props.getBudget();
+    const { getBudget, getExpenses } = this.props;
+    getBudget();
+    getExpenses();
   }
 
   render() {
@@ -62,6 +65,7 @@ const mapStateToProps = store => ({
 
 const mapDispatchToProps = dispatch => ({
   getBudget: () => dispatch(budgetAppOperations.getBudget()),
+  getExpenses: () => dispatch(budgetAppOperations.getExpenses()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

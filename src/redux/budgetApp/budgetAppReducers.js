@@ -7,6 +7,10 @@ const budgetReducer = (state = 0, action) => {
     case types.GET_BUDGET_SUCCESS:
       return action.payload.budget;
 
+    case types.SET_BUDGET_ERROR:
+    case types.GET_BUDGET_ERROR:
+      return state;
+
     default:
       return state;
   }
@@ -14,11 +18,18 @@ const budgetReducer = (state = 0, action) => {
 
 const expensesReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case types.ADD_EXPENSE:
+    case types.GET_EXPENSES_SUCCESS:
+      return payload.expenses;
+
+    case types.ADD_EXPENSE_SUCCESS:
       return [payload.expense, ...state];
 
     case types.DELETE_EXPENSE:
       return state.filter(el => el.id !== payload.id);
+
+    case types.GET_EXPENSES_ERROR:
+    case types.ADD_EXPENSE_ERROR:
+      return state;
 
     default:
       return state;
@@ -37,14 +48,20 @@ const searchReducer = (state = '', { payload, type }) => {
 
 const loaderReducer = (state = false, action) => {
   switch (action.type) {
-    case types.SET_BUDGET_START:
     case types.GET_BUDGET_START:
+    case types.SET_BUDGET_START:
+    case types.GET_EXPENSES_START:
+    case types.ADD_EXPENSE_START:
       return true;
 
-    case types.SET_BUDGET_SUCCESS:
     case types.GET_BUDGET_SUCCESS:
-    case types.SET_BUDGET_ERROR:
+    case types.SET_BUDGET_SUCCESS:
+    case types.GET_EXPENSES_SUCCESS:
+    case types.ADD_EXPENSE_SUCCESS:
     case types.GET_BUDGET_ERROR:
+    case types.SET_BUDGET_ERROR:
+    case types.GET_EXPENSES_ERROR:
+    case types.ADD_EXPENSE_ERROR:
       return false;
 
     default:

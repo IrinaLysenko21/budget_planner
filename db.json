@@ -2,5 +2,11 @@
   "budget": {
     "budget": 10000
   },
-  "expenses": []
+  "expenses": [
+    {
+      "name": "car",
+      "amount": 1200,
+      "id": 1
+    }
+  ]
 }

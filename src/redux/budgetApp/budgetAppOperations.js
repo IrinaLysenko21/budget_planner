@@ -16,3 +16,18 @@ export const getBudget = () => dispatch => {
     .then(res => dispatch(budgetAppActions.getBudgetSuccess(res.data.budget)))
     .catch(err => dispatch(budgetAppActions.getBudgetError(err)));
 };
+
+export const getExpenses = () => dispatch => {
+  dispatch(budgetAppActions.getExpensesStart());
+
+  API.getExpenses()
+    .then(res => dispatch(budgetAppActions.getExpensesSuccess(res.data)))
+    .catch(err => dispatch(budgetAppActions.getExpensesError(err)));
+};
+
+export const addExpense = expense => dispatch => {
+  dispatch(budgetAppActions.addExpenseStart());
+  API.addExpense(expense)
+    .then(res => dispatch(budgetAppActions.addExpenseSuccess(res.data)))
+    .catch(err => dispatch(budgetAppActions.addExpenseError(err)));
+};
