@@ -6,6 +6,8 @@ export const getBudget = store => store.budgetApp.budget;
 
 export const getSearchValue = store => store.budgetApp.search;
 
+export const getLoadingState = store => store.budgetApp.isLoading;
+
 // export const getFilteredExpenses = store => {
 //   const expenses = getExpenses(store);
 //   const searchValue = getSearchValue(store);

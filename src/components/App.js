@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import * as budgetAppSelectors from '../redux/budgetApp/budgetAppSelectors';
+import * as budgetAppOperations from '../redux/budgetApp/budgetAppOperations';
 import BudgetForm from './BudgetForm/BudgetFormContainer';
 import ExpenseForm from './ExpenseForm/ExpenseFormContainer';
-import ExpensesTable from './ExpensesTable/expensesTableContainer';
+import ExpensesTable from './ExpensesTable/ExpensesTableContainer';
 import Values from './Values';
 import Timer from './Timer/Timer';
 import SearchBar from './SearchBar/SearchBar';
+import Loader from './Loader/Loader';
 
 const Container = styled.div`
   display: grid;
@@ -22,27 +24,44 @@ const Container = styled.div`
   margin-right: auto;
 `;
 
-const App = ({ expenses }) => (
-  <>
-    <SearchBar />
-    <Container>
-      <BudgetForm />
-      <Values />
-      <ExpenseForm />
-      {expenses.length > 0 && <ExpensesTable />}
-      <div className={css.block}>
-        <Timer />
-      </div>
-    </Container>
-  </>
-);
+class App extends Component {
+  static propTypes = {
+    expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    isLoading: PropTypes.bool.isRequired,
+  };
 
-App.propTypes = {
-  expenses: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-};
+  componentDidMount() {
+    // console.log(this.props);
+    // this.props.getBudget();
+  }
+
+  render() {
+    const { expenses, isLoading } = this.props;
+    return (
+      <>
+        {isLoading && <Loader />}
+        <SearchBar />
+        <Container>
+          <BudgetForm />
+          <Values />
+          <ExpenseForm />
+          {expenses.length > 0 && <ExpensesTable />}
+          <div className={css.block}>
+            <Timer />
+          </div>
+        </Container>
+      </>
+    );
+  }
+}
 
 const mapStateToProps = store => ({
   expenses: budgetAppSelectors.getExpenses(store),
+  isLoading: budgetAppSelectors.getLoadingState(store),
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  getBudget: () => dispatch(budgetAppOperations.getBudget()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

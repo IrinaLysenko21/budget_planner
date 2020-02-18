@@ -1,11 +1,45 @@
 import types from './budgetAppTypes';
 
-export const setBudget = budget => ({
-  type: types.SET_BUDGET,
+// Set budget actions
+export const setBudgetStart = () => ({
+  type: types.SET_BUDGET_START,
+});
+
+export const setBudgetSuccess = budget => ({
+  type: types.SET_BUDGET_SUCCESS,
   payload: {
     budget,
   },
 });
+
+export const setBudgetError = error => ({
+  type: types.SET_BUDGET_ERROR,
+  payload: {
+    error,
+  },
+});
+
+// Get budget actions
+
+export const getBudgetStart = () => ({
+  type: types.SET_BUDGET_START,
+});
+
+export const getBudgetSuccess = budget => ({
+  type: types.SET_BUDGET_SUCCESS,
+  payload: {
+    budget,
+  },
+});
+
+export const getBudgetError = error => ({
+  type: types.SET_BUDGET_ERROR,
+  payload: {
+    error,
+  },
+});
+
+// Add expense actions
 
 export const addExpense = data => ({
   type: types.ADD_EXPENSE,
