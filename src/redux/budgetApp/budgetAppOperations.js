@@ -27,7 +27,16 @@ export const getExpenses = () => dispatch => {
 
 export const addExpense = expense => dispatch => {
   dispatch(budgetAppActions.addExpenseStart());
+
   API.addExpense(expense)
     .then(res => dispatch(budgetAppActions.addExpenseSuccess(res.data)))
     .catch(err => dispatch(budgetAppActions.addExpenseError(err)));
+};
+
+export const deleteExpense = id => dispatch => {
+  dispatch(budgetAppActions.deleteExpenseStart());
+
+  API.deleteExpense(id)
+    .then(dispatch(budgetAppActions.deleteExpenseSuccess(id)))
+    .catch(err => dispatch(budgetAppActions.deleteExpenseError(err)));
 };

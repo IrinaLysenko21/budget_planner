@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ExpensesTable from './ExpensesTable';
-import * as budgetAppActions from '../../redux/budgetApp/budgetAppActions';
+// import * as budgetAppActions from '../../redux/budgetApp/budgetAppActions';
+import * as budgetAppOperations from '../../redux/budgetApp/budgetAppOperations';
 import * as budgetAppSelectors from '../../redux/budgetApp/budgetAppSelectors';
 
 const mapStateToProps = store => ({
@@ -8,7 +9,7 @@ const mapStateToProps = store => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deleteExpense: id => dispatch(budgetAppActions.deleteExpense(id)),
+  deleteExpense: id => dispatch(budgetAppOperations.deleteExpense(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpensesTable);

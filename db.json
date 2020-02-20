@@ -7,6 +7,16 @@
       "name": "car",
       "amount": 1200,
       "id": 1
+    },
+    {
+      "name": "food",
+      "amount": 800,
+      "id": 2
+    },
+    {
+      "name": "cat",
+      "amount": 100,
+      "id": 4
     }
   ]
 }

@@ -80,12 +80,25 @@ export const addExpenseError = error => ({
 
 // Delete expense actions
 
-export const deleteExpense = id => ({
-  type: types.DELETE_EXPENSE,
+export const deleteExpenseStart = () => ({
+  type: types.DELETE_EXPENSE_START,
+});
+
+export const deleteExpenseSuccess = id => ({
+  type: types.DELETE_EXPENSE_SUCCESS,
   payload: {
     id,
   },
 });
+
+export const deleteExpenseError = error => ({
+  type: types.DELETE_EXPENSE,
+  payload: {
+    error,
+  },
+});
+
+// Search expense action
 
 export const searchExpenseAction = value => ({
   type: types.SEARCH_EXPENSE,
